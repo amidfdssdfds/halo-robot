@@ -123,10 +123,10 @@ function processMessage($message) {
 
     if (strpos($text, "/start") === 0) {
       apiRequestJson("sendMessage", array('chat_id' => $chat_id, "text" => 'Hello', 'reply_markup' => array(
-        'keyboard' => array(array('Hello', 'Hi')),
+        'keyboard' => array(array('Hello', 'Hi'),array("aboutme")),
         'one_time_keyboard' => true,
         'resize_keyboard' => true)));
-    } else if ($text === "Hello" || $text === "Hi") {
+    } else if ($text === "Hello" || $text === "Hi" || $text === "aboutme") {
       apiRequest("sendMessage", array('chat_id' => $chat_id, "text" => 'Nice to meet you'));
     } else if (strpos($text, "/stop") === 0) {
       // stop now
